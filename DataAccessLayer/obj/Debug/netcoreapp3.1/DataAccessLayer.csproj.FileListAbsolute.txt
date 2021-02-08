@@ -1,0 +1,12 @@
+F:\MyApplications\Mardani\DataAccessLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.deps.json
+F:\MyApplications\Mardani\DataAccessLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.dll
+F:\MyApplications\Mardani\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.AssemblyInfoInputs.cache
+F:\MyApplications\Mardani\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.AssemblyInfo.cs
+F:\MyApplications\Mardani\DataAccessLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.runtimeconfig.json
+F:\MyApplications\Mardani\DataAccessLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.runtimeconfig.dev.json
+F:\MyApplications\Mardani\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.genruntimeconfig.cache
+F:\MyApplications\Mardani\DataAccessLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.pdb
+F:\MyApplications\Mardani\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.dll
+F:\MyApplications\Mardani\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.pdb
+F:\MyApplications\Mardani\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.csprojAssemblyReference.cache
+F:\MyApplications\Mardani\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.csproj.CoreCompileInputs.cache

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201017141831_Mig_DegreeTest.cs" />
+    <Compile Remove="Migrations\20201017141831_Mig_DegreeTest.Designer.cs" />
+    <Compile Remove="Migrations\20201017142026_Mig_DegreeTest.cs" />
+    <Compile Remove="Migrations\20201017142026_Mig_DegreeTest.Designer.cs" />
+    <Compile Remove="Migrations\20201021190753_Mig_TestCountry.cs" />
+    <Compile Remove="Migrations\20201021190753_Mig_TestCountry.Designer.cs" />
+    <Compile Remove="Migrations\20201021192105_Mig_TestCountryAndTest.cs" />
+    <Compile Remove="Migrations\20201021192105_Mig_TestCountryAndTest.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MoreLinq.Source.MoreEnumerable.DistinctBy" Version="1.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
