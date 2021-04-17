@@ -1,0 +1,77 @@
+﻿@model DataAccessLayer.Entities.Country
+@inject Core.Classes.Scopes scope
+@{
+    ViewData["Title"] = Model.Name;
+    Layout = "~/Views/Shared/_Panel.cshtml";
+    List<DataAccessLayer.Entities.LangCountry> langCountries = ViewBag.LangLists;
+    List<DataAccessLayer.Entities.DegreeCountry> degreeCountries = ViewBag.DegreeLists;
+}
+
+<div class="offset-2">
+
+    <div class="row">
+
+
+        <div class="col-md-4">
+
+            <img  src="~/Images/Country/@Model.Image" style="max-width:300px; margin:auto" class="img-thumbnail"/>
+
+        </div>
+
+        <div class="col-md-8">
+
+            <p>
+                <span class="badge badge-pill badge-success" >
+                    نام کشور : <a> @Model.Name</a>
+                </span>
+            </p>
+            
+            <p>
+                زبان های مورد پذیرش : 
+                <ul>
+                    @foreach(var item in langCountries)
+                    {
+                        <li>
+                            @item.Language.Name
+                        </li>
+                    }
+                </ul>
+            </p>
+
+            <p>
+                مقاطع تحصیلی مورد پذیرش :
+                <ul>
+                    @foreach (var item in degreeCountries)
+                    {
+                        <li>
+                            @item.Degree.Name
+                        </li>
+                    }
+                </ul>
+            </p>
+
+            <p>
+                نیاز به ویزا :   <a style="color:red">  @((scope.NeedVisa(Model.Id)?"دارد":"ندارد"))</a>
+            </p>
+            <p>
+                حداقل نمره زبان : @Model.Ielts
+            </p>
+
+        </div>
+
+
+    </div>
+    <hr />
+    <div class="row">
+
+        
+
+            @Html.Raw(Model.Description)
+
+        
+
+    </div>
+
+
+</div>
+

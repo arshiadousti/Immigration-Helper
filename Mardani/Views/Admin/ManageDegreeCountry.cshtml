@@ -1,0 +1,68 @@
+﻿
+@model IEnumerable<DataAccessLayer.Entities.Degree>
+@inject Core.Classes.Scopes scope
+@{
+    ViewData["Title"] = "انتساب مقطع تحصیلی";
+    Layout = "~/Views/Shared/_Panel.cshtml";
+    
+
+}
+
+<h1 class="text-center">انتساب مقطع تحصیلی</h1>
+<hr />
+<form asp-action="ManageDegreeCountry">
+    <div class="row" style="margin-top:30px;">
+        <div class="col-md-6">
+            <a class="btn btn-danger btn-sm" asp-action="CountryList">بازگشت</a> |
+            <input class="btn btn-success btn-sm" type="submit" value="ثبت" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" id="DegreeCountryFilter" placeholder="جستجو ..." onkeyup="SearchDegreeCountry()" />
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:30px;">
+
+
+        <div class="col-md-6 offset-3">
+
+            <ul id="DegreeCountryUL" style="list-style:none">
+                @foreach (var item in Model)
+                {
+                    <li style="background-color:lavender; margin:10px; padding:10px;">
+                        <a style="color:black; font-size:16px;">
+                            @item.Name <input style="margin-right:8px;"type="checkbox" @((scope.ExistDegreeCountry(item.Id,ViewBag.CountryID)?"checked":"")) value="@item.Id" name="degreecountry" />
+                        </a>
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</form>
+@section Mardani{ 
+
+ <script>
+     function SearchDegreeCountry() {
+         var ul, li, a, input, filter, txtValue;
+
+         input = document.getElementById("DegreeCountryFilter");
+         filter = input.value.toUpperCase();
+         ul = document.getElementById("DegreeCountryUL");
+         li = ul.getElementsByTagName("li");
+
+         for (var i = 0; i < li.length; i++) {
+             a = li[i].getElementsByTagName("a")[0];
+
+             txtValue = a.textContent || a.innerHTML;
+
+             if (txtValue.toLocaleUpperCase().indexOf(filter) >= 0) {
+                 li[i].style.display = "";
+             }
+             else {
+                 li[i].style.display = "none";
+             }
+         }
+     }
+ </script>
+}

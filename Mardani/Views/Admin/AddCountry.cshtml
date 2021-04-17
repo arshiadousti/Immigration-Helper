@@ -1,0 +1,84 @@
+﻿@model Core.ViewModel.CounrtyViewModel
+
+@{
+    ViewData["Title"] = "ایجاد کشور جدید";
+    Layout = "~/Views/Shared/_Panel.cshtml";
+   
+}
+
+<h1 class="text-center">ایجاد کشور جدید</h1>
+
+<div class="offset-3">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddCountry" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @*<div class="form-group">
+                    <label asp-for="LangId" class="control-label"></label>
+                   <select asp-for="LangId" asp-items="ViewBag.LangId">
+                       <option>
+                           لطفا یک مورد را انتخاب کنید
+                       </option>
+                   </select>
+                    <span asp-validation-for="LangId" class="text-danger"></span>
+                </div>*@
+                @*<div class="form-group">
+                    <label asp-for="DegreeId" class="control-label"></label>
+                    <select asp-for="DegreeId" asp-items="ViewBag.DegreeId">
+                        <option>
+                            لطفا یک مورد را انتخاب کنید
+                        </option>
+                    </select>
+                    <span asp-validation-for="DegreeId" class="text-danger"></span>
+                </div>*@
+                <div class="form-group">
+                    <label asp-for="BudgetId" class="control-label"></label>
+                    <select asp-for="BudgetId" asp-items="ViewBag.BudgetId">
+                        <option>
+                            لطفا یک مورد را انتخاب کنید
+                        </option>
+                    </select>
+                    <span asp-validation-for="BudgetId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Visa" /> @Html.DisplayNameFor(model => model.Visa)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ielts" class="control-label"></label>
+                    <input asp-for="Ielts" class="form-control" />
+                    <span asp-validation-for="Ielts" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image"  />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="ایجاد" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+       
+    </div>
+
+    <div>
+        <a asp-action="CountryList">بازگشت</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
