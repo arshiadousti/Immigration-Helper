@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DataAccessLayer.Entities.Role>
+
+@{
+    ViewData["Title"] = "مدیریت نقش ها";
+    Layout = "~/Views/Shared/_Panel.cshtml";
+}
+
+<h1 class="text-center">مدیریت نقش ها</h1>
+
+<div class="offset-2">
+    <p>
+        <a class="btn btn-info" onclick="AddRole()">ایجاد نقش جدید</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    عملیات
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="role_@item.Id">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" onclick="EditRole(@item.Id)">ویرایش</a> |
+                        <a class="btn btn-sm btn-success" asp-action="ManageRolePermission" asp-route-id="@item.Id">انتخاب دسترسی</a> |
+                        <a class="btn btn-danger btn-sm" onclick="DeleteRole(@item.Id)">حذف</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:lavender">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="ModalBody">
+
+                </div>
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+@section Mardani{
+
+    <script>
+        function AddRole() {
+            $.get("/Admin/AddRole", function (result) {
+                $("#myModal").modal('show');
+                $("#ModalBody").html(result);
+            });
+        }
+
+        function EditRole(id) {
+            $.get("/Admin/EditRole/" + id, function (result) {
+                $("#myModal").modal('show');
+                $("#ModalBody").html(result);
+            });
+        }
+
+        function DeleteRole(id) {
+            if (confirm("آیا از حذف مطمئن هستید ؟")) {
+                $.get("/Admin/DeleteRole/" + id, function () {
+                    $("#role_" + id).hide('slow');
+                });
+            }
+        }
+    </script>
+
+}

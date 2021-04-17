@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DataAccessLayer.Entities.Country>
+@{
+    ViewData["Title"] = "نتیجه آزمون";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">نتیجه آزمون</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6 ">
+
+        @foreach (var item in Model)
+        {
+            <div style="margin-bottom:20px; margin-right:75px;">
+                <img src="~/Images/Country/@item.Image" style="margin:auto ; max-width:200px;" />
+                <br />
+                <a asp-action="Country" asp-controller="Home" asp-route-id="@item.Id" class="text-center" style="font-size:20px; margin-right:70px;">@item.Name</a>
+            </div>
+
+        }
+
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="alert alert-success" >
+
+            <p> در سمت راست لیست کشور های مطابق با شرایط خودت رو میتونی  ببینی !</p>
+            <p>رو اسم هر کشور بزنی اطلاعات کاملش برات میاد  </p>
+
+        </div>
+
+    </div>
+
+</div>
